@@ -13,7 +13,7 @@ module Sinatra
       app.post '/lights' do
         content_type :json
 
-        # halt 400, "Invalid Application ID" unless @application_id == "your application id here"
+        halt 400, "Invalid Application ID" unless @application_id == ENV["ALEXA_APP_ID"]
 
         response = AlexaObjects::Response.new
         begin
